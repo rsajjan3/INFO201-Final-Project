@@ -22,3 +22,10 @@ plot <- plot_geo(shootings.2017, lat = ~lat, lon= ~lng) %>%
     text = ~paste(paste("(", lng, ",", lat, ")"), paste(city, ",", state), paste("People Injured:", injured), paste("People Killed:", killed), sep = "<br />"),
     color = ~injured, colors = c("lightblue", "purple"), size = ~killed, hoverinfo = "text") %>%
   layout(title = "2017 United States shootings<br />(Hover for more info)",geo = geo.style)
+
+library(dplyr)
+natality.data <- read.csv('data.csv')
+BirthsPerCounty <- function(data) {
+  wrangled.data <- group_by(data, County) %>% summarise(births=sum(Births))
+  return(wrangled.data)
+}

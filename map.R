@@ -17,7 +17,7 @@ geo.style <- list(scope = 'Washington State',
                   subunitwidth = 0.5)
 
 # Structuring plot for the shootings
-plot <- plot_geo(shootings.2017, lat = ~lat, lon= ~lng) %>%
+plot <- plot_geo(natality.data, lat = ~lat, lon= ~lng) %>%
   add_markers(
     text = ~paste(paste("(", lng, ",", lat, ")"), paste(city, ",", state), paste("People Injured:", injured), paste("People Killed:", killed), sep = "<br />"),
     color = ~injured, colors = c("lightblue", "purple"), size = ~killed, hoverinfo = "text") %>%

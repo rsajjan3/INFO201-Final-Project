@@ -1,4 +1,5 @@
 # server. R file that defines the data that will be displayed through the UI
+# Created by Megan Tucker
 
 library("shiny")
 library("dplyr")
@@ -30,7 +31,7 @@ shinyServer(function(input, output) {
                       ## Filter data by race values from checkbox widget
     
     # Create the graph itself
-    CreateHistogram(histogram.data)
+    histogram <- CreateHistogram(histogram.data)
     
   })
   
@@ -52,7 +53,7 @@ shinyServer(function(input, output) {
                 ## Filter data by min/max values for number of births
       
     # Create the map itself
-    CreateMap(map.data)
+    map <- CreateMap(map.data)
     
   })
   
@@ -74,7 +75,7 @@ shinyServer(function(input, output) {
                 # Filter data by year values from slider widget
   
     # Create the plot itself
-    CreatePlot(plot.data)
+    plot <- CreatePlot(plot.data)
     
   })
   

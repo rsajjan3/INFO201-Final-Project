@@ -1,8 +1,17 @@
 # Create a histogram for given data
-# Seungju Choi
+# Created by Seungju Choi
 library(dplyr)
-natality.data <- read.csv('data.csv')
-RaceDistrubtion <- function(data) {
-  wrangled.data <- filter(data, County =='King County, WA') %>% group_by(Race) %>% summarise(births=sum(Births))
-  return(wrangled.data)
+library(plotly)
+
+CreateHistogram <- function(data) {
+  histogram <- plot_ly(data, x= data$Race, y= data$Births, type = 'histogram', 
+                       # Hovering information on the Histogram
+                       text = ~paste0("Race:", Race, '<br>Births: ', Births, '<br>Year: ', Year),
+                       # Colorize each race
+                       color = data$Race, size = data$Births) %>% 
+                      layout(xaxis = list(title = 'Race'), yaxis = list(title = 'Amount of Birth')
+                      )
+               
+  return(histogram)
 }
+

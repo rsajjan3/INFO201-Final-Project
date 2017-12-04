@@ -1,13 +1,13 @@
-# Create a histogram for given data
+# histogram.R file that creates a bar graph using the inputted data
 # Created by Seungju Choi
 
 # Since we are trying to categorize x-axis as a Race(Nonnumeric Value), we could not use Histogram.
-# So, we changed our plan to use 'Bargraph' 
+# So, we changed our plan to use 'BarGraph' 
 
 library(plotly)
 
 # Function that creates bargraph to visualize the given data
-CreateBargraph <- function(data) {
+CreateBarGraph <- function(data) {
   
   # X-axis is categorized as Race and Y-axis is amount of Births
   # Colorize each Race as a different color

@@ -1,5 +1,6 @@
-# Create map.R file 
-# Jason Chou
+# map.R file that creates a map using the inputted data
+# Created by Jason Chou
+
 library(dplyr)
 library(plotly)
 library(ggplot2)

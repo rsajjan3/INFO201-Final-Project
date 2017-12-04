@@ -16,10 +16,10 @@ shinyUI(navbarPage("Natality in Washington State",
                             # Print paragraph regarding the dataset
                     ),
                    
-                   tabPanel("Histogram",
+                   tabPanel("Bar Chart",
                             
-                            # Race Checkbox Widget for Histogram
-                            checkboxGroupInput("H.check.race", 
+                            # Race Checkbox Widget for Bar Chart
+                            checkboxGroupInput("B.check.race", 
                                                label = h3("Choose race(s):"), 
                                                choices = list(
                                                  "Cacuasian" = "White", 
@@ -28,8 +28,8 @@ shinyUI(navbarPage("Natality in Washington State",
                                                selected = "White"
                             ),
                             
-                            # Year Slider Widget for Histogram
-                            sliderInput("H.slider.year", 
+                            # Year Slider Widget for Bar Chart
+                            sliderInput("B.slider.year", 
                                         label = h3("Specify year range:"), 
                                         min = 2011,
                                         max = 2015,
@@ -37,8 +37,8 @@ shinyUI(navbarPage("Natality in Washington State",
                             ),
                             
                             
-                            # Call method to print histogram
-                            plotlyOutput("histogram")
+                            # Call method to print Bar Graph
+                            plotlyOutput("bar")
                             
                     ),
                    

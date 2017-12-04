@@ -1,3 +1,6 @@
+# plot.R file that creates a plot using the inputted data
+# Created by Ravi Sajjan
+
 CreatePlot <- function(data) {
   #Split data into quartiles
   data$quartile <- ntile(data$births, 4)

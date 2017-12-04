@@ -1,4 +1,4 @@
-# server. R file that defines the data that will be displayed through the UI
+# server.R file that defines the data that will be displayed through the UI
 # Created by Megan Tucker
 
 library("shiny")
@@ -14,24 +14,24 @@ natality.data <- read.csv('data.csv')
 
 shinyServer(function(input, output) {
   
-  # CREATE HISTOGRAM
+  # CREATE BAR GRAPH
   output$histogram <- renderPlotly({  
     
     # Wrangle original dataset to desired histogram data
-    histogram.data <- filter(natality.data, County == 'King County, WA') %>% 
+    bar.data <- filter(natality.data, County == 'King County, WA') %>% 
     ## Filter out all but King County data
     
-    filter(Year >= input$H.slider.year[1], Year <= input$H.slider.year[2]) %>% 
+    filter(Year >= input$B.slider.year[1], Year <= input$B.slider.year[2]) %>% 
     ## Filter data by year values from slider widget
     
     group_by(Race) %>% summarise(births = sum(Births)) %>% 
     ## Group by race, and sum births for each race
     
-    filter(Race %in% input$H.check.race)
+    filter(Race %in% input$B.check.race)
     ## Filter data by race values from checkbox widget
     
     # Create the graph itself
-    histogram <- CreateHistogram(histogram.data)
+    bar <- CreateBarGraph(bar.data)
     
   })
   

@@ -6,7 +6,7 @@ library("dplyr")
 library("plotly")
 
 source("histogram.R")
-# source("map.R")
+source("map.R")
 # source("plot.R")
 
 # Read in dataset

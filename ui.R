@@ -6,6 +6,7 @@ library("dplyr")
 library("markdown")
 library("ggplot2")
 library("plotly")
+library("tidyverse")
 
 
 shinyUI(navbarPage("Natality in Washington State",
@@ -60,10 +61,10 @@ shinyUI(navbarPage("Natality in Washington State",
                                         min = 2011,
                                         max = 2015,
                                         value = c(2011,2015)
-                            ) ###,                           
+                            ),                           
                             
                             # Call menthod to print map
-                            ### plotlyOutput("map")
+                            plotlyOutput("map")
                             
                     ),
                    

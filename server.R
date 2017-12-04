@@ -7,7 +7,7 @@ library("plotly")
 
 source("histogram.R")
 source("map.R")
-# source("plot.R")
+source("plot.R")
 
 # Read in dataset
 natality.data <- read.csv('data.csv')

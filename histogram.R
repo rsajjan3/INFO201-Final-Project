@@ -1,21 +1,24 @@
 # Create a histogram for given data
 # Created by Seungju Choi
-library(dplyr)
+
+# Since we are trying to categorize x-axis as a Race(Nonnumeric Value), we could not use Histogram.
+# So, we changed our plan to use 'Bargraph' 
+
 library(plotly)
 
-CreateHistogram <- function(data) {
-  histogram <- plot_ly(data, x= data$Race, y= data$Births, type = 'histogram', 
+# Function that creates bargraph to visualize the given data
+CreateBargraph <- function(data) {
+  
+  # X-axis is categorized as Race and Y-axis is amount of Births
+  # Colorize each Race as a different color
+  bar <- plot_ly(data, x= data$Race, y= data$births, type = 'bar', color = data$Race) %>% 
                       
-                      # Hovering information on the Histogram
-                      # text = ~paste0("Race:", Race, '<br>Births: ', Births, '<br>Year: ', Year),
-                      ### ^ There is an error on this line because the object "Births" cannot be found
-                      
-                      # Colorize each race
-                      color = data$Race, size = data$Births) %>% 
-                      
-                      layout(xaxis = list(title = 'Race'), yaxis = list(title = 'Amount of Birth')
-                      )
+                      # Creates the main title for this bargraph
+                      layout(title = "Number of Births in Each Race for Given Range of Years", 
+                             
+                             # Creates the title for X-axis and Y-axis
+                             xaxis = list(title = 'Race'), yaxis = list(title = 'Number of Birth'))
                
-  return(histogram)
+  return(bar)
 }
 

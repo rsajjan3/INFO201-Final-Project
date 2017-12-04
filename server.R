@@ -46,7 +46,7 @@ shinyServer(function(input, output) {
     filter(Year >= input$M.slider.year[1], Year <= input$M.slider.year[2]) %>%
     ## Filter data by year values from slider widget
     
-    group_by(data, County) %>% summarise(births=sum(Births)) %>%
+    group_by(County) %>% summarise(births=sum(Births)) %>%
     ## Group by county, and sum births for each county
     
     filter(Births >= input$M.slider.birth[1], Births <= input$M.slider.birth[2])
@@ -61,22 +61,20 @@ shinyServer(function(input, output) {
   
   # CREATE PLOT
   output$plot <- renderPlotly({  
-    
-    plot.data <- natality.data %>%    
+    plot.data <- natality.data
+    plot.data$Age.of.Mother.Year <- gsub(" years", "", plot.data$Age.of.Mother.Year)
     ## Begin with original dataset
     
-    group_by(data, Year, Age.of.Mother.Year) %>% summarise(births=sum(Births)) %>%
+    plot.data <- group_by(plot.data, Year, Age.of.Mother.Year) %>% summarise(births=sum(Births)) %>%
     ## Group by both year and mother age, and sum birth for each Year/Age pair
     
-    filter(Age.of.Mother.Year >= input$P.slider.age[1], Age.of.Mother.Year <= input$P.slider.age[2]) %>%
+    filter(as.numeric(Age.of.Mother.Year) >= input$P.slider.age[1], as.numeric(Age.of.Mother.Year) <= input$P.slider.age[2]) %>%
     ## Filter data by min/max values for age
     
     filter(Year >= input$P.slider.year[1], Year <= input$P.slider.year[2])
     ## Filter data by year values from slider widget
-    
     # Create the plot itself
     plot <- CreatePlot(plot.data)
-    
   })
   
   

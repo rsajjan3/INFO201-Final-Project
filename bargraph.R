@@ -1,4 +1,4 @@
-# histogram.R file that creates a bar graph using the inputted data
+# bargraph.R file that creates a bar graph using the inputted data
 # Created by Seungju Choi
 
 # Since we are trying to categorize x-axis as a Race(Nonnumeric Value), we could not use Histogram.

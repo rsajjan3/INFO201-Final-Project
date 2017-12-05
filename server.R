@@ -51,7 +51,7 @@ shinyServer(function(input, output) {
     colnames(wash)[6] <- "County"
     ## Make the column name to County so that later can join with map.data
     
-    births <- natality.data %>%   
+    WA_births <- natality.data %>%   
     ## Begin with the original dataset
     
     filter(Year >= input$M.slider.year[1], Year <= input$M.slider.year[2]) %>%
@@ -60,16 +60,16 @@ shinyServer(function(input, output) {
     group_by(County) %>% summarise(births=sum(Births)) %>%
     ## Group by county, and sum births for each county
     
-    filter(Births >= input$M.slider.birth[1], Births <= input$M.slider.birth[2])
+    filter(births >= input$M.slider.birth[1], births <= input$M.slider.birth[2])
     ## Filter data by min/max values for number of births
     
-    births$County <- tolower(gsub(" County, WA","", births$County))
+    WA_births$County <- tolower(gsub(" County, WA","", births$County))
     ## lower case the county name
     
-    births <- filter(births, County %in% c("benton", "clark", "cowlitz", "king", "kitsap", "pierce", "skagit", "snohomish", "spokane", "thurston", "whatcom", "yakima"))
+    WA_births <- filter(births, County %in% c("benton", "clark", "cowlitz", "king", "kitsap", "pierce", "skagit", "snohomish", "spokane", "thurston", "whatcom", "yakima"))
     ## Delete the unidentity county
     
-    map.data <- full_join(wash, births, by = "County")
+    map.data <- full_join(wash, WA_births, by = "County")
     
     # Create the map itself
     map <- CreateMap(map.data)

@@ -6,6 +6,9 @@ library(plotly)
 library(ggplot2)
 library(tidyverse)
 library(maps)
+natality.data <- read.csv('data.csv')
+## Read in data
+
 
 
 
@@ -19,9 +22,9 @@ CreateMap <- function(map.data) {
     plot_ly(
       x = ~long, 
       y = ~lat, 
-      color = ~Births, 
+      color = ~births, 
       colors = c('#ffeda0','#f03b20'),
-      text = ~paste(paste(County), paste("Births:", Births), sep = "<br />"),
+      text = ~paste(paste(County), paste("Births:", births), sep = "<br />"),
       hoverinfo = 'text')  %>%
     add_polygons(line = list(width = 0.4)) %>%
     layout(

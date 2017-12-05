@@ -15,7 +15,7 @@ natality.data <- read.csv('data.csv')
 shinyServer(function(input, output) {
   
   # CREATE BAR GRAPH
-  output$histogram <- renderPlotly({  
+  output$bar <- renderPlotly({  
     
     # Wrangle original dataset to desired histogram data
     bar.data <- filter(natality.data, County == 'King County, WA') %>% 

@@ -5,7 +5,7 @@ library("shiny")
 library("dplyr")
 library("plotly")
 
-source("histogram.R")
+source("bargraph.R")
 source("map.R")
 source("plot.R")
 

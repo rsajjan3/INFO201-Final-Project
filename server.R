@@ -4,6 +4,7 @@
 library("shiny")
 library("dplyr")
 library("plotly")
+library(maps)
 
 source("bargraph.R")
 source("map.R")
@@ -40,7 +41,17 @@ shinyServer(function(input, output) {
   # CREATE MAP
   output$map <- renderPlotly({  
     
-    map.data <- natality.data %>%   
+    natality.data <- read.csv('data.csv')
+    ## Read in data
+    
+    wash <- map_data("county") %>%
+            filter(region == 'washington')
+    ## Washington State county latitute and longtitude
+    
+    colnames(wash)[6] <- "County"
+    ## Make the column name to County so that later can join with map.data
+    
+    births <- natality.data %>%   
     ## Begin with the original dataset
     
     filter(Year >= input$M.slider.year[1], Year <= input$M.slider.year[2]) %>%
@@ -51,6 +62,14 @@ shinyServer(function(input, output) {
     
     filter(Births >= input$M.slider.birth[1], Births <= input$M.slider.birth[2])
     ## Filter data by min/max values for number of births
+    
+    births$County <- tolower(gsub(" County, WA","", births$County))
+    ## lower case the county name
+    
+    births <- filter(births, County %in% c("benton", "clark", "cowlitz", "king", "kitsap", "pierce", "skagit", "snohomish", "spokane", "thurston", "whatcom", "yakima"))
+    ## Delete the unidentity county
+    
+    map.data <- full_join(wash, births, by = "County")
     
     # Create the map itself
     map <- CreateMap(map.data)

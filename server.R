@@ -63,7 +63,7 @@ shinyServer(function(input, output) {
     filter(births >= input$M.slider.birth[1], births <= input$M.slider.birth[2])
     ## Filter data by min/max values for number of births
     
-    WA_births$County <- tolower(gsub(" County, WA","", births$County))
+    WA_births$County <- tolower(gsub(" County, WA","", WA_births$County))
     ## lower case the county name
     
     WA_births <- filter(births, County %in% c("benton", "clark", "cowlitz", "king", "kitsap", "pierce", "skagit", "snohomish", "spokane", "thurston", "whatcom", "yakima"))

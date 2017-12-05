@@ -1,4 +1,4 @@
-# histogram.R file that creates a bar graph using the inputted data
+# bargraph.R file that creates a bar graph using the inputted data
 # Created by Seungju Choi
 
 # Since we are trying to categorize x-axis as a Race(Nonnumeric Value), we could not use Histogram.
@@ -16,8 +16,8 @@ CreateBarGraph <- function(data) {
                       # Creates the main title for this bargraph
                       layout(title = "Number of Births in Each Race for Given Range of Years", 
                              
-                             # Creates the title for X-axis and Y-axis
-                             xaxis = list(title = 'Race'), yaxis = list(title = 'Number of Birth'))
+                             # Creates the title for X-axis and Y-axis that has maximum limit of 100,000
+                             xaxis = list(title = 'Race'), yaxis = list(range = c(0, 100000), title = 'Number of Birth'))
                
   return(bar)
 }

@@ -6,17 +6,10 @@ library(plotly)
 library(ggplot2)
 library(tidyverse)
 library(maps)
-natality.data <- read.csv('data.csv')
-## Read in data
-
-
-
-
-#wash_births$Births_cat <- cut(wash_births$Births, breaks = c(seq(0, 10000, by = 500)), labels=1:20)
-
 
 
 CreateMap <- function(map.data) {
+  #map.data$Births_cat <- cut(map.data$births, breaks = c(seq(0, 10000, by = 500)), labels=1:20)
   plot <- map.data %>%
     group_by(group) %>%
     plot_ly(
@@ -28,7 +21,7 @@ CreateMap <- function(map.data) {
       hoverinfo = 'text')  %>%
     add_polygons(line = list(width = 0.4)) %>%
     layout(
-      title = "2011~2015 Washington States Birth Rate<br />(Hover for more info)",
+      title = "Washington States Birth Rate<br />(Hover for more info)",
       titlefont = list(size = 10),
       xaxis = list(title = "", showgrid = FALSE,
                    zeroline = FALSE, showticklabels = FALSE),

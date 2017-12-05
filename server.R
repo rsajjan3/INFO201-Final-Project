@@ -54,7 +54,8 @@ shinyServer(function(input, output) {
     WA_births <- natality.data %>%   
     ## Begin with the original dataset
     
-    filter(Year >= input$M.slider.year[1], Year <= input$M.slider.year[2]) %>%
+    filter(Year.Code >= input$M.slider.year[1], Year.Code <= input$M.slider.year[2]) %>%
+      
     ## Filter data by year values from slider widget
     
     group_by(County) %>% summarise(births=sum(Births)) %>%
@@ -66,7 +67,7 @@ shinyServer(function(input, output) {
     WA_births$County <- tolower(gsub(" County, WA","", WA_births$County))
     ## lower case the county name
     
-    WA_births <- filter(births, County %in% c("benton", "clark", "cowlitz", "king", "kitsap", "pierce", "skagit", "snohomish", "spokane", "thurston", "whatcom", "yakima"))
+    WA_births <- filter(WA_births, County %in% c("benton", "clark", "cowlitz", "king", "kitsap", "pierce", "skagit", "snohomish", "spokane", "thurston", "whatcom", "yakima"))
     ## Delete the unidentity county
     
     map.data <- full_join(wash, WA_births, by = "County")

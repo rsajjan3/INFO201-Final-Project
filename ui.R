@@ -111,7 +111,7 @@ shinyUI(navbarPage("Natality in Washington State",
                             sliderInput("P.slider.age", 
                                         label = h3("Specify mother age range:"), 
                                         min = 0,
-                                        max = 60,
+                                        max = 50,
                                         value = c(25,35)
                             ),
                             

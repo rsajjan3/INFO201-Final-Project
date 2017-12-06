@@ -101,7 +101,7 @@ shinyUI(navbarPage("Natality in Washington State",
                             # Births Slider Widget for Map
                             sliderInput("M.slider.birth", 
                                         label = h3("Specify number of births range:"), 
-                                        min = 2000,
+                                        min = 0,
                                         max = 30000,
                                         value = c(2000,10000)
                                         

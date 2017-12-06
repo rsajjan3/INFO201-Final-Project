@@ -71,6 +71,10 @@ shinyServer(function(input, output) {
     ## Delete the unidentity county
     
     map.data <- full_join(wash, WA_births, by = "County")
+    ## Join two data frame
+    
+    map.data$Births_cat <- cut(map.data$births, breaks = c(seq(0, 25000, by = 1)), labels=1:25000)
+    ## Break data into regions/categories
     
     # Create the map itself
     map <- CreateMap(map.data)

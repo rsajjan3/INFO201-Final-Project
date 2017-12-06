@@ -12,11 +12,11 @@ CreateMap <- function(map.data) {
   plot <- map.data %>%
     group_by(group) %>%
     plot_ly(
+      text = ~paste(County, paste("Births: ", births), sep = "<br />"),
       x = ~long, 
       y = ~lat, 
       color = ~Births_cat, 
-      colors = c('#ffeda0','#f03b20'),
-      text = ~paste(County, paste("Births: ", births), sep = "<br />")
+      colors = c('#ffeda0','#f03b20')
       ) %>%
     add_polygons(line = list(width = 0.4)) %>%
     add_polygons(

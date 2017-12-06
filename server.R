@@ -73,7 +73,7 @@ shinyServer(function(input, output) {
     map.data <- full_join(wash, WA_births, by = "County")
     ## Join two data frame
     
-    map.data$Births_cat <- cut(map.data$births, breaks = c(seq(0, 25000, by = 1)), labels=1:25000)
+    map.data$Births_cat <- cut(map.data$births, breaks = c(seq(0, 130000, by = 1)), labels=1:130000)
     ## Break data into regions/categories
     
     # Create the map itself

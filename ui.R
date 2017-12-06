@@ -102,7 +102,7 @@ shinyUI(navbarPage("Natality in Washington State",
                             sliderInput("M.slider.birth", 
                                         label = h3("Specify number of births range:"), 
                                         min = 0,
-                                        max = 30000,
+                                        max = 130000,
                                         value = c(2000,10000)
                                         
                                         # TODO: CHANGE VALUES WHEN DATA IS ANALYZED

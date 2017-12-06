@@ -13,6 +13,9 @@ shinyUI(navbarPage("Natality in Washington State",
                    
                    tabPanel("About",
                             
+                            tags$img(src = "https://cdn7.dissolve.com/p/D1312_2_238/D1312_2_238_0004_600.jpg"),
+                            
+                            
                             tags$h1("This Application"),
                             tags$div("The intention of this application is to provide our audience with a simple yet effective way to explore data.
                                      Use the headers at the top of the page to navigate from visulaization to visualization.

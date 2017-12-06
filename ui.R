@@ -22,6 +22,7 @@ shinyUI(navbarPage("Natality in Washington State",
                                      The currently implimented visualizations include: Bar Graph, Map, and Plot."),
                             tags$hr(),                            
                             
+                            
                             tags$h1("The Dataset"),
                             tags$div("The data used in the creation of this is natality (birth rate) data gathered by the CDC.
                                     It majorly focuses on birthmothers, including basic information such as their race, age, and so on. 
@@ -29,6 +30,7 @@ shinyUI(navbarPage("Natality in Washington State",
                                     The data can be found on the Centers for Disease Control Wonder at the following link:"),
                             tags$a(href="https://wonder.cdc.gov/natality-current.html", "https://wonder.cdc.gov/natality-current.html"),
                             tags$hr(),
+                            
                             
                             tags$h1("Our Audience"),
                             tags$div("Whether you be friend or researcher, mother or other, this application was designed with you in mind.
@@ -40,11 +42,13 @@ shinyUI(navbarPage("Natality in Washington State",
                                     or what kind of programs to run where."),
                             tags$hr(),
                             
+                            
                             tags$h1("Us"),
                             tags$div("This application was created by Group AB1, which consisted of four Informatics students at the University of Washington: Matthew Choi, Jason Chou, Ravi Sajjan, & Megan Tucker. 
                                     We are UW students who took Mike Freeman's INFO 201 class during Autumn of 2017. 
-                                    During that class, we learned the necessary R Studio, Shiny, and data manipulation skills in order to create this application.")
-
+                                    During that class, we learned the necessary R Studio, Shiny, and data manipulation skills in order to create this application."),
+                            tags$br()
+                            
                     ),
                    
                    tabPanel("Bar Chart",
@@ -68,7 +72,7 @@ shinyUI(navbarPage("Natality in Washington State",
                                                  "Cacuasian" = "White", 
                                                  "African America" = "Black or African American", 
                                                  "Asian or Pacific Islander" = "Asian or Pacific Islander"),
-                                               selected = "White"
+                                               selected = c("White", "Black or African American", "Asian or Pacific Islander")
                             ),
                             
                             # Year Slider Widget for Bar Chart
@@ -103,10 +107,7 @@ shinyUI(navbarPage("Natality in Washington State",
                                         label = h3("Specify number of births range:"), 
                                         min = 0,
                                         max = 130000,
-                                        value = c(2000,10000)
-                                        
-                                        # TODO: CHANGE VALUES WHEN DATA IS ANALYZED
-                                        
+                                        value = c(0, 130000)
                             ),
                             
                             # Year Slider Widget for Map
@@ -114,7 +115,7 @@ shinyUI(navbarPage("Natality in Washington State",
                                         label = h3("Specify year range:"), 
                                         min = 2011,
                                         max = 2015,
-                                        value = c(2011,2015)
+                                        value = c(2011,2011)
                             ),                           
                             
                             # Call method to print map

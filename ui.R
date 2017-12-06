@@ -46,6 +46,12 @@ shinyUI(navbarPage("Natality in Washington State",
                    
                    tabPanel("Bar Chart",
                             
+                            tags$h1("Bar Chart"),
+                            tags$div("Manipulate this bar chart using the widgets below to explore the race of birth mothers over the five year period.
+                                     You may select and unselect the different race groups as well as choose which year's data should be shown."),
+                            tags$hr(),
+                            
+                            
                             # Race Checkbox Widget for Bar Chart
                             checkboxGroupInput("B.check.race", 
                                                label = h3("Choose race(s):"), 
@@ -72,6 +78,11 @@ shinyUI(navbarPage("Natality in Washington State",
                    
                    tabPanel("Map",
                             
+                            tags$h1("Map"),
+                            tags$div("Manipulate this map using the widgets below to explore the number of births in each WA county over period from 2011 to 2015.
+                                     You may filter the max and min of number of births as well as choose which year's data to be shown."),
+                            tags$hr(),
+                            
                             # Births Slider Widget for Map
                             sliderInput("M.slider.birth", 
                                         label = h3("Specify number of births range:"), 
@@ -97,6 +108,11 @@ shinyUI(navbarPage("Natality in Washington State",
                     ),
                    
                    tabPanel("Plot",
+                            
+                            tags$h1("Plot"),
+                            tags$div("Manipulate this plot using the widgets below to explore the ages of mothers over the time period between 2011 to 2015.
+                                     You may filter the max and min ages as well as choose which year's data to be shown."),
+                            tags$hr(),
                             
                             # Year Slider Widget for Plot
                             sliderInput("P.slider.year", 

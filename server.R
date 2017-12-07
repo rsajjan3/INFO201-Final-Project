@@ -4,7 +4,6 @@
 library("shiny")
 library("dplyr")
 library("plotly")
-library(maps)
 
 source("bargraph.R")
 source("map.R")

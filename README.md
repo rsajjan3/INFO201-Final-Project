@@ -7,4 +7,4 @@ This project was created by INFO 201's Group AB1: Matthew Choi, Jason Chou, Ravi
 
 Link to GitHub: https://github.com/tuckemeg000/AB1-Final-Project
 
-Link to Application: <to be inserted>
+Link to Application: https://tuckemeg000.shinyapps.io/AB1-Final-Project/

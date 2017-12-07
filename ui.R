@@ -3,11 +3,7 @@
 
 library("shiny")
 library("dplyr")
-library("markdown")
-library("ggplot2")
 library("plotly")
-library("tidyverse")
-
 
 shinyUI(navbarPage("Natality in Washington State",
                    

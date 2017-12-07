@@ -19,7 +19,7 @@ CreateMap <- function(map.data) {
                 showlegend = FALSE
                 ) %>%
     layout(
-            title = "Washington States Birth Rate<br />(Hover for more info)",
+            title = "Births per County<br />(Hover for more info)",
             titlefont = list(size = 10),
             xaxis = list(
                         title = "", 

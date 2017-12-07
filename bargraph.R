@@ -12,13 +12,13 @@ CreateBarGraph <- function(data) {
                  x = data$Race, 
                  y = data$births, 
                  type = 'bar', 
-                 color = data$Race#,
-                 #p+scale_fill_manual(values=c("#f03b20", "#E69F00", "#56B4E9"))
+                 color = data$Race
                  ) %>% 
                       
-          layout(title = "Number of Births in Each Race for Given Range of Years", 
+          layout(title = "Births per Mothers' Race<br />(Hover for more info)", 
                 xaxis = list(title = 'Race'), 
-                yaxis = list(range = c(0, 100000))
+                yaxis = list(range = c(0, 100000)),
+                showlegend = FALSE
                 )
                
   return(bar)

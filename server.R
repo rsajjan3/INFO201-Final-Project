@@ -1,6 +1,8 @@
 # server.R file that defines the data that will be displayed through the UI
 # Created by Megan Tucker
 
+options(shiny.sanitize.errors = FALSE)
+
 library("shiny")
 library("dplyr")
 library("plotly")

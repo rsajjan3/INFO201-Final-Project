@@ -1,6 +1,8 @@
 # map.R file that creates a map using the inputted data
 # Created by Jason Chou
 
+library(maps)
+
 CreateMap <- function(map.data) {
   map.data$Births_cat <- gsub("NA", "0", map.data$Births_cat)
   plot <- map.data %>%

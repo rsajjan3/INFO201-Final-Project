@@ -43,7 +43,7 @@ shinyUI(navbarPage("Natality in Washington State",
                             
                             
                             tags$h1("About Us"),
-                            tags$div("This application was created by Group AB1, which consisted of four Informatics students at the University of Washington: Matthew Choi, Jason Chou, Ravi Sajjan, & Megan Tucker. 
+                            tags$div("This application was created by Group AB1, which consisted of four Informatics students at the University of Washington: Matthew Choi, Jason Chou, Ravi Sajjan, and Megan Tucker. 
                                     We are UW students who took Mike Freeman's INFO 201 class during Autumn of 2017. 
                                     During that class, we learned the necessary R Studio, Shiny, and data manipulation skills in order to create this application.
                                     We thank you for using our app. Our GitHub and code can be found at the link below:"),
